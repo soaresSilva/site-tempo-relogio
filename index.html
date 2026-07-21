@@ -30,23 +30,26 @@
             </div>
 
             <div class="timer">
-                h2>timer</h2>
-                <p>25:00</p>
-            </div>
+                <h2>timer</h2>
+                <p id="timer-display">25:00</p>
 
-            <div class="player">
-                <h2>Player</h2>
-                <p>Spotify</p>
-            </div>
+                <button onclick="iniciarPausar()" id="btn-iniciar">Iniciar</button>
+                <button id="btn-pausar" onclick="pauseTimer()">Pausar</button>
+                <button id="btn-resetar" onclick="resetTimer()">Resetar</button>
 
-            <div id="playlist">
-                <ul>
-                    <li>music1</li>
-                    <li>music2</li>
-                    <li>music3</li>
-                </ul>
+                <div class="player">
+                    <h2>Player</h2>
+                    <p>Spotify</p>
+                </div>
+
+                <div id="playlist">
+                    <ul>
+                        <li>music1</li>
+                        <li>music2</li>
+                        <li>music3</li>
+                    </ul>
+                </div>
             </div>
-        </div>
     </section>
 </body>
 
