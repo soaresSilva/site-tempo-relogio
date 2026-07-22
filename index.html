@@ -1,57 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Environment</title>
+
     <link rel="stylesheet" href="style.css">
-    <title>Tempo</title>
 </head>
 
 <body>
 
+    <!-- ===================== -->
+    <!-- VÍDEO DE FUNDO -->
+    <!-- ===================== -->
+
     <video id="bg-video" autoplay muted loop playsinline>
         <source src="videos/snow-night.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
     </video>
 
+    <!-- Overlay -->
     <div class="overlay"></div>
 
-    <!-- conteudo rolável -->
-    <section class="content">
+    <!-- ===================== -->
+    <!-- CONTEÚDO -->
+    <!-- ===================== -->
+
+    <main class="content">
+
         <div class="grid">
-            <div id="clock">
-                <h2>relógio</h2>
-                <p id="time">00:00:00</p>
-            </div>
 
-            <div class="whether">
-                <h2>clima</h2>
-                <p id="whether">Carregando...</p>
-            </div>
+            <!-- RELÓGIO -->
 
-            <div class="timer">
-                <h2>timer</h2>
-                <p id="timer-display">25:00</p>
+            <section class="card clock">
 
-                <button onclick="iniciarPausar()" id="btn-iniciar">Iniciar</button>
-                <button id="btn-pausar" onclick="pauseTimer()">Pausar</button>
-                <button id="btn-resetar" onclick="resetTimer()">Resetar</button>
+                <h2>🕒 Horário</h2>
 
-                <div class="player">
-                    <h2>Player</h2>
-                    <p>Spotify</p>
+                <p id="time">
+                    00:00:00
+                </p>
+
+            </section>
+
+            <!-- CLIMA -->
+
+            <section class="card weather">
+
+                <h2>🌤 Clima</h2>
+
+                <p id="weather">
+                    Carregando...
+                </p>
+
+            </section>
+
+            <!-- POMODORO -->
+
+            <section class="card timer">
+
+                <h2>🍅 Pomodoro</h2>
+
+                <p id="timer-display">
+                    25:00
+                </p>
+
+                <div class="buttons">
+
+                    <button id="btn-iniciar">
+                        ▶ Iniciar
+                    </button>
+
+                    <button id="btn-pausar">
+                        ⏸ Pausar
+                    </button>
+
+                    <button id="btn-resetar">
+                        ↺ Resetar
+                    </button>
+
                 </div>
 
-                <div id="playlist">
-                    <ul>
-                        <li>music1</li>
-                        <li>music2</li>
-                        <li>music3</li>
-                    </ul>
-                </div>
-            </div>
-    </section>
+            </section>
+
+            <!-- PLAYER -->
+
+            <section class="card player">
+
+                <h2>🎵 Tocando Agora</h2>
+
+                <div id="youtube-player"></div>
+
+                <p id="now-playing">
+                    Nenhuma música selecionada
+                </p>
+
+            </section>
+
+            <!-- PLAYLIST -->
+
+            <section class="card playlist">
+
+                <h2>📃 Playlist</h2>
+
+                <ul id="playlist">
+                    <!-- JavaScript cria os itens -->
+                </ul>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- API DO YOUTUBE -->
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <!-- SCRIPT PRINCIPAL -->
+
+    <script src="script.js" defer></script>
+
 </body>
 
 </html>
-<script src="script.js"></script>
