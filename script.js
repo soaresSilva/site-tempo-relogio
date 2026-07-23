@@ -229,39 +229,30 @@ const LONGITUDE = -46.6333;
 
 
 async function obterClima() {
-
   try {
-
     const resposta = await fetch(
-
       `https://api.open-meteo.com/v1/forecast?latitude=${LATITUDE}&longitude=${LONGITUDE}&current_weather=true`
-
     );
 
     const dados = await resposta.json();
+    const temperatura = dados.current_weather.temperature;
+    const codigo = dados.current_weather.weathercode;
+    const local = "São Paulo, Brasil";
+    const vento = dados.current_weather.windspeed;
 
-    const temperatura =
-      dados.current_weather.temperature;
-
-    const codigo =
-      dados.current_weather.weathercode;
-
-    weatherElement.textContent =
-      `${temperatura}°C • ${traduzirCodigo(codigo)}`;
+    weatherElement.innerHTML = `
+    <strong>${local}</strong><br>
+    ${temperatura}°C • ${traduzirCodigo(codigo)}<br>
+    💨 Vento: ${vento} km/h
+    `;
 
     atualizarPlaylist(codigo);
-
   }
-
   catch (erro) {
-
     console.error(erro);
-
     weatherElement.textContent =
       "Erro ao carregar clima";
-
   }
-
 }
 
 
@@ -377,41 +368,24 @@ function atualizarPlaylist(codigo) {
 
 
 function carregarPlaylist(videoId) {
-
-
   if (player) {
-
     player.loadVideoById(videoId);
-
     return;
-
   }
-
 
   player = new YT.Player(
     "youtube-player",
     {
-
-      height: "0",
-
-      width: "0",
-
+      height: "200",
+      width: "100%",
       videoId: videoId,
-
       playerVars: {
-
-        autoplay: 1,
-
+        autoplay: 0,
         loop: 1,
-
-        controls: 0
-
+        controls: 1
       }
-
     }
-
   );
-
 }
 
 /* Efeito de blur ao scroll */
@@ -426,3 +400,12 @@ function handleScroll() {
 }
 
 window.addEventListener('scroll', handleScroll);
+
+// Inicialização
+atualizarRelogio();
+setInterval(atualizarRelogio, 1000);
+
+obterClima();                  // já chama atualizarVideo e atualizarPlaylist
+setInterval(obterClima, 1800000);
+
+atualizarDisplay();            // mostra 25:00 no Pomodoro
