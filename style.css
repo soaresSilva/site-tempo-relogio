@@ -409,6 +409,75 @@ button{
 
 }
 
+/* ===========================
+   AUTENTICAÇÃO YOUTUBE
+=========================== */
+
+#btn-login,
+#btn-logout {
+    display: block;
+    width: 100%;
+    margin: 0 auto 15px auto;
+    padding: 12px 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    transition: 0.3s;
+    text-align: center;
+}
+
+#btn-login:hover,
+#btn-logout:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+}
+
+#btn-login:active,
+#btn-logout:active {
+    transform: scale(0.96);
+}
+
+/* Container de playlists (preenchido pelo JS) */
+#playlist-container {
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding-right: 5px;
+}
+
+/* Cada playlist ou vídeo (o JS criará <div> com classe .playlist-item) */
+.playlist-item {
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.95rem;
+    color: #ddd;
+    backdrop-filter: blur(8px);
+}
+
+.playlist-item:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateX(4px);
+}
+
+/* Scrollbar do container (já tem estilo global, mas reforçamos) */
+#playlist-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#playlist-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
 
 /* ===========================
    RESPONSIVO

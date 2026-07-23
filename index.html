@@ -70,10 +70,12 @@
             <!-- PLAYER -->
             <section class="card player">
                 <h2>🎵 Tocando Agora</h2>
+                <button id="btn-login" style="visibility: hidden;" onclick="handleAuthClick()">Conectar Youtube</button>
+                <button id="btn-logout" style="display: none;" onclick="handleSignoutClick()">Sair</button>
+                <div id="playlist-container" style="display: none;"></div>
+
                 <div id="youtube-player"></div>
-                <p id="now-playing">
-                    Nenhuma música selecionada
-                </p>
+                <p id="now-playing">Faça login para acessar suas playlists</p>
             </section>
 
             <!-- PLAYLIST -->
